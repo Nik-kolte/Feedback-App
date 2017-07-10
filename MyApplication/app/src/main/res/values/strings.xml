@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Feedback System</string>
+    <string name="edit_message1">eg. SI027</string>
+    <string name="welcome">Welcome</string>
+    <string name="students">Students</string>
+    <string name="teachers">Teachers</string>
+    <string-array name="yname">
+        <item>FE</item>
+        <item>SE</item>
+        <item>TE</item>
+        <item>BE</item>
+    </string-array>
+    <string-array name="bname">
+        <item>CS</item>
+        <item>IT</item>
+        <item>ETC</item>
+    </string-array>
+</resources>
