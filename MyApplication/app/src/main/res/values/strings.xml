@@ -1,9 +1,20 @@
 <resources>
+    <!-- Resource file for the app, all hardcoded string kept here-->
     <string name="app_name">Feedback System</string>
     <string name="edit_message1">eg. SI027</string>
     <string name="welcome">Welcome</string>
     <string name="students">Students</string>
     <string name="teachers">Teachers</string>
+    <string name="tid">eg- "to be put"</string>
+    <string name="tpass">Enter password</string>
+    <string name="teacher_id">Teacher ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="roll_number">Roll Number</string>
+    <string name="name">Name</string>
+    <string name="branch">Branch</string>
+    <string name="year">Year</string>
+    <string name="proceed">Proceed</string>
     <string-array name="yname">
         <item>FE</item>
         <item>SE</item>

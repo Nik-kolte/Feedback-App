@@ -14,14 +14,14 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        Spinner spinner1= (Spinner) findViewById(R.id.sp1);
-        ArrayAdapter<String> barray = new ArrayAdapter<String>(Main2Activity.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.bname));
-        barray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1.setAdapter(barray);
+        Spinner spinner1= (Spinner) findViewById(R.id.sp2); //Object for Branch drop down /Spinner created
+        ArrayAdapter<String> barray = new ArrayAdapter<String>(Main2Activity.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.bname)); //created adapter and received bname array from res file
+        barray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);  //Set type of Spinner Adapter
+        spinner1.setAdapter(barray); //Called Spinner using the adapter
 
-        Spinner spinner2= (Spinner) findViewById(R.id.sp2);
-        ArrayAdapter<String> yarray = new ArrayAdapter<String>(Main2Activity.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.yname));
-        barray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(yarray);
+        Spinner spinner2= (Spinner) findViewById(R.id.sp1);  //Object for Branch drop down /Spinner created
+        ArrayAdapter<String> yarray = new ArrayAdapter<String>(Main2Activity.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.yname)); //created adapter and received yname array from res file
+        barray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);  //Set type of Spinner Adapter
+        spinner2.setAdapter(yarray);  //Called Spinner using the adapter
     }
 }

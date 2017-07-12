@@ -1,6 +1,5 @@
 package com.example.nikko.myapplication;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,14 +10,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     public Button but1;
+    public Button but2;
 
     public void Init()
     {
-        but1= (Button) findViewById(R.id.students);
+        but1= (Button) findViewById(R.id.Students); //Student button widget's object created
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent stud = new Intent(MainActivity.this,Main2Activity.class);
+                Intent stud = new Intent(MainActivity.this,Main2Activity.class);   //Linking welcome screen to Student Screen
+                startActivity(stud);
+            }
+        });
+
+        but2= (Button) findViewById(R.id.Teachers); //Teacher button widget's object created
+        but2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent stud = new Intent(MainActivity.this,Main3Activity.class);   //Linking welcome screen to Teacher Login Screen
                 startActivity(stud);
             }
         });
@@ -27,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.welcome);
         Init();
     }
 }

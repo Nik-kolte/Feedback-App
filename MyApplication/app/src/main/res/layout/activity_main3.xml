@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nikko.myapplication.Main3Activity">
+
+    <!--XML File for Teacher login screen-->
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="262dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/tid"
+        android:inputType="textPersonName"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/tv6"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="50dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv5" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="266dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="@string/tpass"
+        android:inputType="textPassword"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="42dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv6" />
+
+    <TextView
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/teacher_id"
+        android:textSize="20sp"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="130dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editText3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:textSize="20sp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_marginTop="114dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv5"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="112dp"
+        app:layout_constraintLeft_toLeftOf="@+id/editText4" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="141dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+</android.support.constraint.ConstraintLayout>
