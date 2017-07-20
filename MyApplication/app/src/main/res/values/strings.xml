@@ -5,8 +5,8 @@
     <string name="welcome">Welcome</string>
     <string name="students">Students</string>
     <string name="teachers">Teachers</string>
-    <string name="tid">eg- "to be put"</string>
-    <string name="tpass">Enter password</string>
+    <string name="tid">Teacher ID</string>
+    <string name="tpass">Password</string>
     <string name="teacher_id">Teacher ID</string>
     <string name="password">Password</string>
     <string name="login">Login</string>

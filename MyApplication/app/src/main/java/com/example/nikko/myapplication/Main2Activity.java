@@ -1,5 +1,6 @@
 package com.example.nikko.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +17,8 @@ import java.lang.reflect.Array;
 public class Main2Activity extends AppCompatActivity {
 
     Button proc_btn ;
-    EditText s_name,r_num;
-    String s_branch,s_year,st_name,rollno;
+    EditText s_fname,s_lname,r_num;
+    String s_branch,s_year,st_fname,st_lname,rollno;
     Spinner spinner1,spinner2;
     ArrayAdapter<String> barray,yarray;
     @Override
@@ -25,8 +26,9 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        s_name = (EditText)findViewById(R.id.t1) ;
-        r_num = (EditText)findViewById(R.id.t2) ;
+        s_fname = (EditText)findViewById(R.id.f_name) ;
+        s_lname = (EditText)findViewById(R.id.l_name) ;
+        r_num = (EditText)findViewById(R.id.r_no) ;
         proc_btn =(Button) findViewById(R.id.proceed);
 
         spinner1= (Spinner) findViewById(R.id.sp2); //Object for Branch drop down /Spinner created
@@ -70,8 +72,11 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                st_name = s_name.getText().toString();
+                st_fname = s_fname.getText().toString();
+                st_lname = s_lname.getText().toString();
                 rollno = r_num.getText().toString();
+                Intent stud = new Intent(Main2Activity.this,Main4Activity.class);   //Linking student details to feedback
+                startActivity(stud);
             }
         });
     }

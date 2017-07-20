@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,137 +9,89 @@
     tools:layout_editor_absoluteX="0dp">
 
     <!--XML File for Student screen-->
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="63dp"
-        android:layout_height="35dp"
-        android:text="@string/name"
-        android:textSize="20sp"
-        android:layout_marginStart="48dp"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="75dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="48dp" />
-
-    <TextView
-        android:id="@+id/tv2"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:text="@string/roll_number"
-        android:textSize="20sp"
-        android:layout_marginStart="38dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/t2"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="38dp" />
 
     <EditText
-        android:id="@+id/t1"
-        android:layout_width="193dp"
-        android:layout_height="51dp"
+        android:id="@+id/r_no"
+        android:layout_width="350dp"
+        android:layout_height="52dp"
         android:ems="10"
+        android:hint="Roll No."
         android:inputType="textPersonName"
-        android:layout_marginStart="20dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv1"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toRightOf="@+id/tv1"
-        android:layout_marginLeft="20dp" />
+        tools:layout_editor_absoluteY="201dp"
+        tools:layout_editor_absoluteX="67dp"
+        android:layout_marginBottom="53dp"
+        android:layout_above="@+id/sp1"
+        android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/t2"
-        android:layout_width="171dp"
-        android:layout_height="56dp"
+        android:id="@+id/f_name"
+        android:layout_width="350dp"
+        android:layout_height="52dp"
+        android:hint="First Name"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_marginStart="6dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/sp2"
-        android:layout_marginTop="67dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="68dp"
-        app:layout_constraintTop_toTopOf="@+id/tv1"
-        app:layout_constraintLeft_toRightOf="@+id/tv2"
-        android:layout_marginLeft="6dp" />
+        tools:layout_editor_absoluteY="83dp"
+        tools:layout_editor_absoluteX="28dp"
+        android:layout_marginBottom="14dp"
+        android:layout_above="@+id/l_name"
+        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/tv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/branch"
-        android:textSize="20sp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintRight_toLeftOf="@+id/sp2"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="200dp"
-        android:layout_marginRight="12dp" />
-
-    <TextView
-        android:id="@+id/tv4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/year"
-        android:textSize="20sp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintRight_toLeftOf="@+id/sp2"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/sp1"
-        android:layout_marginBottom="15dp"
-        android:layout_marginRight="12dp" />
+    <EditText
+        android:id="@+id/l_name"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteY="151dp"
+        tools:layout_editor_absoluteX="92dp"
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/r_no"
+        android:layout_alignLeft="@+id/r_no"
+        android:layout_alignStart="@+id/r_no" />
 
     <Spinner
         android:id="@+id/sp1"
-        android:layout_width="0dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="10dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/proceed"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintRight_toRightOf="@+id/sp2"
-        android:layout_marginTop="60dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="55dp"
-        app:layout_constraintTop_toTopOf="@+id/tv3"
-        app:layout_constraintLeft_toRightOf="@+id/tv4"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="2dp" />
+        android:layout_width="151dp"
+        android:layout_height="60dp"
+        tools:layout_editor_absoluteY="320dp"
+        tools:layout_editor_absoluteX="130dp"
+        android:layout_above="@+id/sp2"
+        android:layout_alignLeft="@+id/sp2"
+        android:layout_alignStart="@+id/sp2"
+        android:layout_marginBottom="28dp" />
 
     <Spinner
         android:id="@+id/sp2"
-        android:layout_width="0dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/sp1"
-        app:layout_constraintRight_toRightOf="@+id/t1"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintLeft_toLeftOf="@+id/proceed"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp" />
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        tools:layout_editor_absoluteY="408dp"
+        tools:layout_editor_absoluteX="131dp"
+        android:layout_above="@+id/proceed"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:id="@+id/proceed"
-        android:layout_width="122dp"
-        android:layout_height="48dp"
+        android:layout_width="199dp"
+        android:layout_height="51dp"
         android:text="@string/proceed"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="51dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        tools:layout_editor_absoluteY="501dp"
+        tools:layout_editor_absoluteX="106dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student Details"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="92dp"
+        android:layout_marginBottom="25dp"
+        android:layout_above="@+id/f_name"
+        android:layout_centerHorizontal="true" />
+
+</android.widget.RelativeLayout>

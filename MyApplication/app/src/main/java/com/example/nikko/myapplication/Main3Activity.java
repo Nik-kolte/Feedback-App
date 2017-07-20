@@ -19,11 +19,11 @@ public class Main3Activity extends AppCompatActivity {
     //TextView tv;
     private String username,password;
     //Need to create object for button and then link it to next page
-    private boolean checkInDatabase(String username, String password, Context context)
+   /* private boolean checkInDatabase(String username, String password, Context context)
     {
      //          SQLiteDatabase db =
         //will update after the query knowledge of SQLite
-    }
+    }*/
 
 
 
@@ -32,7 +32,6 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         b = (Button) findViewById(R.id.button);      //CLICK CHECK
-        //tv= (TextView) findViewById(R.id.display);   //DISPLAY CHECK*
 
         b.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -43,14 +42,14 @@ public class Main3Activity extends AppCompatActivity {
         password = ePassword.getText().toString();
 
                 if(username.equals("")||username==null){
-                    Toast.makeText( getApplicationContext(),"Teacher-Login ID invalid",Toast.LENGTH_SHORT).show();
+                    Toast.makeText( getApplicationContext(),"Invalid ID",Toast.LENGTH_SHORT).show();
                 }
                 else if(password.equals("") || password == null){
                     Toast.makeText(getApplicationContext(),"Invalid Password",Toast.LENGTH_SHORT);
                 }
                 else
                 {
-                        boolean checkLogin = checkInDatabase(username , password, Main3Activity.this);
+                      //  boolean checkLogin = checkInDatabase(username , password, Main3Activity.this);
 
                 }
 

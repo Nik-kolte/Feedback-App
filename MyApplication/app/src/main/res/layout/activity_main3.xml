@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,29 +11,18 @@
     <!--XML File for Teacher login screen-->
     <EditText
         android:id="@+id/teacherid"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="350dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:hint="@string/tid"
         android:inputType="textPersonName"
-        android:layout_marginStart="57dp"
-        android:layout_marginEnd="57dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/tv6"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="30dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="19dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv5"
-        android:layout_marginLeft="57dp"
-        android:layout_marginRight="57dp" />
+        android:layout_alignBottom="@+id/teacherpass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="81dp" />
 
     <EditText
         android:id="@+id/teacherpass"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="44dp"
         android:ems="10"
         android:hint="@string/tpass"
@@ -41,47 +30,36 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="@+id/teacherid"
-        android:layout_marginTop="51dp"
         app:layout_constraintTop_toBottomOf="@+id/teacherid"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/teacherid" />
-
-    <TextView
-        android:id="@+id/tv5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/teacher_id"
-        android:textSize="20sp"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="130dp"
-        tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/teacherid"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/password"
-        android:textSize="20sp"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="73dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv5"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="59dp" />
+        android:layout_marginBottom="73dp"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/login"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="19dp"
         app:layout_constraintTop_toBottomOf="@+id/teacherpass"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="166dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:textAlignment="center"
+        android:text="Teacher Login"
+        android:textSize="30dp"/>
+</android.widget.RelativeLayout>
