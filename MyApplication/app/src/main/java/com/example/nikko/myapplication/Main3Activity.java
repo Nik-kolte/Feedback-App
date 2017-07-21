@@ -3,6 +3,7 @@ package com.example.nikko.myapplication;
 import java.lang.String;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.os.Bundle;
@@ -45,12 +46,14 @@ public class Main3Activity extends AppCompatActivity {
                     Toast.makeText( getApplicationContext(),"Invalid ID",Toast.LENGTH_SHORT).show();
                 }
                 else if(password.equals("") || password == null){
-                    Toast.makeText(getApplicationContext(),"Invalid Password",Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(),"Invalid Password",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                       //  boolean checkLogin = checkInDatabase(username , password, Main3Activity.this);
-
+                    Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
+                    Intent stud = new Intent(Main3Activity.this,Main5Activity.class);   //Linking welcome screen to Teacher Login Screen
+                    startActivity(stud);
                 }
 
 
@@ -61,4 +64,28 @@ public class Main3Activity extends AppCompatActivity {
         }*/
     }});
 
-}}
+}
+    @Override
+    public boolean onCreateOptionsMenu(Menu manu){
+        getMenuInflater().inflate(R.menu.main , manu); //creating menu in action bar
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){    //programming the items inside menu
+        int id=item.getItemId();
+
+        if(id==R.id.id_aboutapp)
+        {
+            Toast.makeText( getApplicationContext(),"About App Selected",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if(id==R.id.id_exit)
+        {
+            finish();
+            System.exit(0);
+            return true;
+        }
+        return true;
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Change Password"
+        android:id="@+id/id_changepass"
+        android:orderInCategory="101"
+        android:showAsAction="never" />
+
+    <item
+        android:title="About App"
+        android:id="@+id/id_aboutapp"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <item
+        android:title="Logout"
+        android:id="@+id/id_logout"
+        android:orderInCategory="102"
+        android:showAsAction="never" />
+</menu>

@@ -56,10 +56,10 @@
         android:layout_height="60dp"
         tools:layout_editor_absoluteY="320dp"
         tools:layout_editor_absoluteX="130dp"
+        android:layout_marginBottom="28dp"
         android:layout_above="@+id/sp2"
         android:layout_alignLeft="@+id/sp2"
-        android:layout_alignStart="@+id/sp2"
-        android:layout_marginBottom="28dp" />
+        android:layout_alignStart="@+id/sp2" />
 
     <Spinner
         android:id="@+id/sp2"

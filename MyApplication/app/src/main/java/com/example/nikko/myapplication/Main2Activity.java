@@ -3,6 +3,8 @@ package com.example.nikko.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -75,9 +77,45 @@ public class Main2Activity extends AppCompatActivity {
                 st_fname = s_fname.getText().toString();
                 st_lname = s_lname.getText().toString();
                 rollno = r_num.getText().toString();
-                Intent stud = new Intent(Main2Activity.this,Main4Activity.class);   //Linking student details to feedback
-                startActivity(stud);
+                if(st_fname.equals("")||st_fname==null){
+                    Toast.makeText( getApplicationContext(),"Invalid First Name",Toast.LENGTH_SHORT).show();
+                }
+                else if(st_lname.equals("") || st_lname == null){
+                    Toast.makeText(getApplicationContext(),"Invalid Last Name",Toast.LENGTH_SHORT).show();
+                }
+                else if(rollno.equals("") || rollno == null){
+                    Toast.makeText(getApplicationContext(),"Invalid Roll Number",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Register Successful",Toast.LENGTH_SHORT).show();
+                    Intent stud = new Intent(Main2Activity.this,Main4Activity.class);   //Linking student details to feedback
+                    startActivity(stud);
+                }
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu manu){
+        getMenuInflater().inflate(R.menu.main , manu); //creating menu in action bar
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){    //programming the items inside menu
+        int id=item.getItemId();
+
+        if(id==R.id.id_aboutapp)
+        {
+            Toast.makeText( getApplicationContext(),"About App Selected",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if(id==R.id.id_exit)
+        {
+            finish();
+            System.exit(0);
+            return true;
+        }
+        return true;
     }
 }

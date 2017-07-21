@@ -6,18 +6,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+public class Main5Activity extends AppCompatActivity {
 
-public class Main4Activity extends AppCompatActivity {
-    //Student feedback page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.activity_main5);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu manu){
-        getMenuInflater().inflate(R.menu.main , manu); //creating menu in action bar
+        getMenuInflater().inflate(R.menu.teach_fb , manu); //creating menu in action bar
         return true;
     }
 
@@ -30,12 +29,17 @@ public class Main4Activity extends AppCompatActivity {
             Toast.makeText( getApplicationContext(),"About App Selected",Toast.LENGTH_SHORT).show();
             return true;
         }
-        if(id==R.id.id_exit)
+        if(id==R.id.id_changepass)
         {
-            finish();
-            System.exit(0);
+            Toast.makeText( getApplicationContext(),"Change Password Selected",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if(id==R.id.id_logout)
+        {
+            Toast.makeText( getApplicationContext(),"Logout Selected",Toast.LENGTH_SHORT).show();
             return true;
         }
         return true;
     }
+
 }
