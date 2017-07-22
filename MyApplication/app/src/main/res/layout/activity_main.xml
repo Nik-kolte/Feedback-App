@@ -23,7 +23,7 @@
         android:layout_width="136dp"
         android:layout_height="40dp"
         android:text="@string/welcome"
-        android:textSize="32sp"
+        android:textSize="32dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
