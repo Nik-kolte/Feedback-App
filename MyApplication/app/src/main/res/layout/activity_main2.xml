@@ -9,89 +9,56 @@
     tools:layout_editor_absoluteX="0dp">
 
     <!--XML File for Student screen-->
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="40dp">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student Login"
+        android:textSize="30dp"
+        android:layout_marginBottom="80dp"
+        />
     <EditText
         android:id="@+id/r_no"
         android:layout_width="350dp"
         android:layout_height="52dp"
         android:ems="10"
-        android:hint="Roll No."
+        android:hint="Roll No.(eg - TI027)"
+        android:gravity="center"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteY="201dp"
-        tools:layout_editor_absoluteX="67dp"
-        android:layout_marginBottom="53dp"
-        android:layout_above="@+id/sp1"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:id="@+id/f_name"
-        android:layout_width="350dp"
-        android:layout_height="52dp"
-        android:hint="First Name"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteY="83dp"
-        tools:layout_editor_absoluteX="28dp"
-        android:layout_marginBottom="14dp"
-        android:layout_above="@+id/l_name"
-        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="''Your feedback will be anonymous''"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginBottom="30dp"
+        />
 
-    <EditText
-        android:id="@+id/l_name"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteY="151dp"
-        tools:layout_editor_absoluteX="92dp"
-        android:layout_marginBottom="12dp"
-        android:layout_above="@+id/r_no"
-        android:layout_alignLeft="@+id/r_no"
-        android:layout_alignStart="@+id/r_no" />
-
-    <Spinner
-        android:id="@+id/sp1"
-        android:layout_width="151dp"
-        android:layout_height="60dp"
-        tools:layout_editor_absoluteY="320dp"
-        tools:layout_editor_absoluteX="130dp"
-        android:layout_marginBottom="28dp"
-        android:layout_above="@+id/sp2"
-        android:layout_alignLeft="@+id/sp2"
-        android:layout_alignStart="@+id/sp2" />
-
-    <Spinner
-        android:id="@+id/sp2"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        tools:layout_editor_absoluteY="408dp"
-        tools:layout_editor_absoluteX="131dp"
-        android:layout_above="@+id/proceed"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
 
     <Button
         android:id="@+id/proceed"
         android:layout_width="199dp"
         android:layout_height="51dp"
         android:text="@string/proceed"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button"
         tools:layout_editor_absoluteY="501dp"
         tools:layout_editor_absoluteX="106dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="35dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Student Details"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="92dp"
-        android:layout_marginBottom="25dp"
-        android:layout_above="@+id/f_name"
-        android:layout_centerHorizontal="true" />
+
+</LinearLayout>
 
 </android.widget.RelativeLayout>

@@ -8,8 +8,15 @@
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 
-
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="40dp">
     <ImageView
         android:id="@+id/image1"
         android:layout_width="wrap_content"
@@ -32,17 +39,37 @@
         android:layout_width="206dp"
         android:layout_height="55dp"
         android:text="@string/students"
-        android:layout_above="@+id/Teachers"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button"
+        android:layout_below="@+id/l1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="38dp" />
+        android:layout_marginTop="30dp"
+         />
 
     <Button
         android:id="@+id/Teachers"
         android:layout_width="206dp"
         android:layout_height="55dp"
         android:text="@string/teachers"
-        android:layout_alignParentBottom="true"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp" />
+        android:layout_below="@id/Students"
+         />
 
+    <Button
+        android:id="@+id/g_lecture"
+        android:layout_width="206dp"
+        android:layout_height="55dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button"
+        android:text="Guest Lecture"
+        android:layout_below="@+id/Teachers"
+        android:layout_centerHorizontal="true"
+        android:onClick="guestButton"
+         />
+        </LinearLayout>
+    </ScrollView>
 </android.widget.RelativeLayout>

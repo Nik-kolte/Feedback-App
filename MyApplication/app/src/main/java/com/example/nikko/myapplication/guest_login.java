@@ -1,27 +1,15 @@
 package com.example.nikko.myapplication;
 
-import android.app.DownloadManager;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.provider.Settings;
-import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Size;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -29,19 +17,17 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.android.volley.*;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main2Activity extends AppCompatActivity {
+public class guest_login extends AppCompatActivity {
 
     protected Button proc_btn ;               //PROCEED BTN
     private EditText r_num;
@@ -51,24 +37,21 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-if(get_registerbit()==1)
+        setContentView(R.layout.guest_loginlayout);
+if(get_registerbit_guest()==1)
 {
     Toast.makeText(getBaseContext(),"Please finish your previous feedback", Toast.LENGTH_LONG).show();
     Intent stud4;
-    stud4 = new Intent(Main2Activity.this,Main4Activity.class);
+    stud4 = new Intent(guest_login.this,guest_feedback.class);
     startActivity(stud4);
 }
 else {
-    store_feed_count(0);
+    store_feed_count_guest(0);
     r_num = (EditText) findViewById(R.id.r_no);
     proc_btn = (Button) findViewById(R.id.proceed);
     proc_btn.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(final View view) {
-                                        //if user pressed on button register
-                                        //here we will register the user to server
-                                        //   registerUser();
                                         rollno = r_num.getText().toString().toUpperCase();
 
                                         if (TextUtils.isEmpty(rollno)) {
@@ -85,27 +68,27 @@ else {
 
                                                 }
                                                 else {
-                                                    Toast.makeText(Main2Activity.this, "Invalid Roll Number", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(guest_login.this, "Invalid Roll Number", Toast.LENGTH_LONG).show();
                                                 }
                                             }
                                             else {
-                                                Toast.makeText(Main2Activity.this, "Invalid Roll Number", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(guest_login.this, "Invalid Roll Number", Toast.LENGTH_LONG).show();
                                             }
 
                                         } else {
-                                            Toast.makeText(Main2Activity.this, "Invalid Roll Number", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(guest_login.this, "Invalid Roll Number", Toast.LENGTH_LONG).show();
                                         }
                                     }
                                 }
 
     );
-                                    }
+}
     }
 
     public void signup(){
 
-        String URL = "http://"+GlobalClass.URL+"/fed_app/register.php";
-        RequestQueue queue = Volley.newRequestQueue(Main2Activity.this);
+        String URL = "http://"+GlobalClass.URL+"/fed_app/register_guest.php";
+        RequestQueue queue = Volley.newRequestQueue(guest_login.this);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -121,13 +104,13 @@ else {
                     String code = jsonObject.getString("code");
                     if(code.equals("Successful"))
                     {
-                        store_branch(jsonObject.getString("branch"));
-                        store_year(jsonObject.getString("year"));
-                        store_rollno(jsonObject.getString("rollno"));
-                        set_registerbit(1);
+                        store_branch_guest(jsonObject.getString("branch"));
+                        store_year_guest(jsonObject.getString("year"));
+                        store_rollno_guest(jsonObject.getString("rollno"));
+                        set_registerbit_guest(1);
                         Toast.makeText(getBaseContext(),code, Toast.LENGTH_LONG).show();
                         Intent stud4;
-                        stud4 = new Intent(Main2Activity.this,Main4Activity.class);
+                        stud4 = new Intent(guest_login.this,guest_feedback.class);
                         startActivity(stud4);
                     }
                     else
@@ -162,13 +145,13 @@ else {
         queue.add(stringRequest);
 
 
-}
+    }
 
 
 
     @Override
     public void onBackPressed() {
-        Intent stud = new Intent(Main2Activity.this, MainActivity.class);   //back button
+        Intent stud = new Intent(guest_login.this, MainActivity.class);   //back button
         startActivity(stud);
         finish();
     }
@@ -191,40 +174,41 @@ else {
         return true;
     }
 
-    private void set_registerbit(int bit) {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main",MODE_PRIVATE);
+    private void set_registerbit_guest(int guest_bit) {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main",MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putInt("bit",bit);
+        mEditor.putInt("guest_bit",guest_bit);
         mEditor.apply();
     }
-    private int get_registerbit() {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main", MODE_PRIVATE);
-        int checker = mSharedPreferences.getInt("bit", 0);
+    private int get_registerbit_guest() {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main", MODE_PRIVATE);
+        int checker = mSharedPreferences.getInt("guest_bit", 0);
         return checker;
     }
-    private void store_rollno(String rollno) {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main",MODE_PRIVATE);
+
+    private void store_rollno_guest(String guest_rollno) {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main",MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString("rollno", rollno);
-        mEditor.apply();
-    }
-    private void store_branch(String branch) {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main",MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString("branch", branch);
-        mEditor.apply();
-    }
-    private void store_year(String year) {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main",MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString("year",year );
+        mEditor.putString("guest_rollno",guest_rollno);
         mEditor.apply();
     }
 
-    private void store_feed_count(int count) {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main",MODE_PRIVATE);
+    private void store_branch_guest(String guest_branch) {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main",MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putInt("count",count);
+        mEditor.putString("guest_branch", guest_branch);
+        mEditor.apply();
+    }
+    private void store_year_guest(String guest_year) {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main",MODE_PRIVATE);
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+        mEditor.putString("guest_year",guest_year );
+        mEditor.apply();
+    }
+    private void store_feed_count_guest(int guest_count) {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main",MODE_PRIVATE);
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+        mEditor.putInt("guest_count",guest_count);
         mEditor.apply();
     }
 

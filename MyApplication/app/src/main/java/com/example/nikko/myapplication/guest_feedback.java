@@ -2,7 +2,9 @@ package com.example.nikko.myapplication;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,11 +37,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class Main4Activity extends AppCompatActivity {
+public class guest_feedback extends AppCompatActivity {
     //Student feedback page
     TextView TV_ques1,TV_ques2,TV_ques3,TV_ques4,TV_ques5,TV_ques6,TV_ques7,TV_ques8,TV_ques9,TV_ques10;
     EditText ET_ans1,ET_ans2,ET_ans3,ET_ans4,ET_ans5,ET_ans6,ET_ans7,ET_ans8,ET_ans9,ET_ans10;
-    String ans10;
+    String st_ans10;
     Spinner sp_teacher;
 
     ScrollView scroll;
@@ -47,12 +49,12 @@ public class Main4Activity extends AppCompatActivity {
     static int teacher_index,teacher_count;
     ArrayAdapter<String> tarray;
 
-    String ans1,ans2,ans3,ans4,ans5,ans6,ans7,ans8,ans9;
+    String ans1,ans2,ans3,ans4,ans5,ans6,ans7,ans8,ans9,ans10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.activity_guest_feedback);
         TV_ques1 =(TextView)findViewById(R.id.ques1);
         TV_ques2 =(TextView)findViewById(R.id.ques2);
         TV_ques3 =(TextView)findViewById(R.id.ques3);
@@ -80,20 +82,21 @@ public class Main4Activity extends AppCompatActivity {
         teacher_array();
 
     }
-   public void feedSave(View view)
+    public void feedSave(View view)
     {
         ans1 = ET_ans1.getText().toString();
         if (TextUtils.isEmpty(ans1)) {
             ET_ans1.setError("Please enter value between 1-10");
             ET_ans1.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 1", Toast.LENGTH_SHORT).show();
             return;
-            }
+        }
         else{
             int i = Integer.parseInt(ans1);
             if(i>10||i==0){
                 ET_ans1.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 1", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 1", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -101,13 +104,14 @@ public class Main4Activity extends AppCompatActivity {
         if (TextUtils.isEmpty(ans2)) {
             ET_ans2.setError("Please enter value between 1-10");
             ET_ans2.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 2", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 2", Toast.LENGTH_SHORT).show();
             return;}
         else{
             int i = Integer.parseInt(ans2);
             if(i>10||i==0){
                 ET_ans2.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 2", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 2", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -115,13 +119,14 @@ public class Main4Activity extends AppCompatActivity {
         if (TextUtils.isEmpty(ans3)) {
             ET_ans3.setError("Please enter value between 1-10");
             ET_ans3.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 3", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 3", Toast.LENGTH_SHORT).show();
             return;}
         else{
             int i = Integer.parseInt(ans3);
             if(i>10||i==0){
                 ET_ans3.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 3", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 3", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -129,13 +134,14 @@ public class Main4Activity extends AppCompatActivity {
         if (TextUtils.isEmpty(ans4)) {
             ET_ans4.setError("Please enter value between 1-10");
             ET_ans4.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 4", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 4", Toast.LENGTH_SHORT).show();
             return;}
         else{
             int i = Integer.parseInt(ans4);
             if(i>10||i==0){
                 ET_ans4.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 4", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 4", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -143,13 +149,14 @@ public class Main4Activity extends AppCompatActivity {
         if (TextUtils.isEmpty(ans5)) {
             ET_ans5.setError("Please enter value between 1-10");
             ET_ans5.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 5", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 5", Toast.LENGTH_SHORT).show();
             return;}
         else{
             int i = Integer.parseInt(ans5);
             if(i>10||i==0){
                 ET_ans5.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 5", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 5", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -157,13 +164,14 @@ public class Main4Activity extends AppCompatActivity {
         if (TextUtils.isEmpty(ans6)) {
             ET_ans6.setError("Please enter value between 1-10");
             ET_ans6.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 6", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 6", Toast.LENGTH_SHORT).show();
             return;}
         else{
             int i = Integer.parseInt(ans6);
             if(i>10||i==0){
                 ET_ans6.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 6", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 6", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -171,13 +179,14 @@ public class Main4Activity extends AppCompatActivity {
         if (TextUtils.isEmpty(ans7)) {
             ET_ans7.setError("Please enter value between 1-10");
             ET_ans7.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 7", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 7", Toast.LENGTH_SHORT).show();
             return;}
         else{
             int i = Integer.parseInt(ans7);
             if(i>10||i==0){
                 ET_ans7.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 7", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 7", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -185,14 +194,15 @@ public class Main4Activity extends AppCompatActivity {
         if (TextUtils.isEmpty(ans8)) {
             ET_ans8.setError("Please enter value between 1-10");
             ET_ans8.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 8", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 8", Toast.LENGTH_SHORT).show();
 
             return;}
         else{
             int i = Integer.parseInt(ans8);
             if(i>10||i==0){
                 ET_ans8.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 8", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 8", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -201,16 +211,16 @@ public class Main4Activity extends AppCompatActivity {
         if (TextUtils.isEmpty(ans9)) {
             ET_ans9.setError("Please enter value between 1-10");
             ET_ans9.requestFocus();
-            Toast.makeText(Main4Activity.this, "Check Answer 9", Toast.LENGTH_SHORT).show();
+            Toast.makeText(guest_feedback.this, "Check Answer 9", Toast.LENGTH_SHORT).show();
             return;}
         else{
             int i = Integer.parseInt(ans9);
             if(i>10||i==0){
                 ET_ans9.setError("Please enter value between 1-10");
-                Toast.makeText(Main4Activity.this, "Check Answer 9", Toast.LENGTH_SHORT).show();
+                ET_ans9.requestFocus();
+                Toast.makeText(guest_feedback.this, "Check Answer 9", Toast.LENGTH_SHORT).show();
                 return;
             }
-
         }
         ans10 = ET_ans10.getText().toString();
         if (TextUtils.isEmpty(ans9)) {
@@ -220,25 +230,23 @@ public class Main4Activity extends AppCompatActivity {
             if(ans10.length()>150){
                 ET_ans9.setError("Max 150 characters");
                 ET_ans9.requestFocus();
-                Toast.makeText(Main4Activity.this, "Check Answer 10", Toast.LENGTH_SHORT).show();
+                Toast.makeText(guest_feedback.this, "Check Answer 10", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
-
         feedback_send();
-            //save button
+        //save button
     }
 
-    public void feedback_send(){
+    public void feedback_send() {
         //if successful send to Mainactivity
-        String URL_ROOT = "http://"+ GlobalClass.URL+"/fed_app/feedback_send.php";
+        String URL_ROOT = "http://" + GlobalClass.URL + "/fed_app/feedback_send.php";
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest stringRequest =  new StringRequest(Request.Method.POST,URL_ROOT,new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_ROOT, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(response != null)
-                {
+                if (response != null) {
                     System.out.println(response);
                 }
                 try {
@@ -246,11 +254,12 @@ public class Main4Activity extends AppCompatActivity {
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
                     String code = jsonObject.getString("code");
                     if (code.equals("Feedback Successful")) {
-                        store_feed_count(get_feed_count()+1);
-                        Toast.makeText(Main4Activity.this, "Feedback for "+teacher_name_array[teacher_index]+" Submitted", Toast.LENGTH_SHORT).show();
+                        store_feed_count_guest(get_feed_count_guest() + 1);
+                        set_registerbit_guest(0);
+                        Toast.makeText(guest_feedback.this, "Feedback for " + teacher_name_array[teacher_index] + " Submitted", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(Main4Activity.this, code, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(guest_feedback.this, code, Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -261,26 +270,25 @@ public class Main4Activity extends AppCompatActivity {
         },
                 new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError volleyError){
+                    public void onErrorResponse(VolleyError volleyError) {
                         System.out.println(String.valueOf(volleyError));
-                    }})
-        {
+                    }
+                }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 // return super.getParams();
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("teacher_id",teacher_id_array[teacher_index]);
-                params.put("roll_no",get_rollno().toUpperCase());
-                params.put("question1",ans1);
-                params.put("question2",ans2);
-                params.put("question3",ans3);
-                params.put("question4",ans4);
-                params.put("question5",ans5);
-                params.put("question6",ans6);
-                params.put("question7",ans7);
-                params.put("question8",ans8);
-                params.put("question9",ans9);
-                params.put("question10",ans10);
+                params.put("teacher_id", teacher_id_array[teacher_index]);
+                params.put("roll_no", get_rollno_guest().toUpperCase());
+                params.put("question1", ans1);
+                params.put("question2", ans2);
+                params.put("question3", ans3);
+                params.put("question4", ans4);
+                params.put("question5", ans5);
+                params.put("question6", ans6);
+                params.put("question7", ans7);
+                params.put("question8", ans8);
+                params.put("question9", ans9);
                 return params;
             }
         };
@@ -290,6 +298,7 @@ public class Main4Activity extends AppCompatActivity {
     public void teacher_array()
     {
         String URL_ROOT = "http://"+ GlobalClass.URL+"/fed_app/extract_teachers.php";
+        //Toast.makeText(guest_feedback.this, get, Toast.LENGTH_SHORT).show();
 
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest =  new StringRequest(Request.Method.POST,URL_ROOT,new Response.Listener<String>() {
@@ -314,17 +323,17 @@ public class Main4Activity extends AppCompatActivity {
 
                             if(jsonObject.getString("id").charAt(0)=='G'&&jsonObject.getString("id").charAt(1)=='S')
                             {
+                                teacher_n_array[i] = jsonObject.getString("name");
+                                teacher_i_array[i] = jsonObject.getString("id");
+                            }
+                            else {
                                 teacher_n_array[i]= "why";
                                 teacher_i_array[i]="why";
                                 teacher_count--;
                             }
-                            else {
-                                teacher_n_array[i] = jsonObject.getString("name");
-                                teacher_i_array[i] = jsonObject.getString("id");
-                            }
 
                         } else {
-                            Toast.makeText(Main4Activity.this, code, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(guest_feedback.this, code, Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -352,9 +361,7 @@ public class Main4Activity extends AppCompatActivity {
                             teacher_id_array[j++]= teacher_i_array[i];
                         }
                     }
-
                     spinner();
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -363,7 +370,7 @@ public class Main4Activity extends AppCompatActivity {
             }
 
             public void spinner() {
-                tarray = new ArrayAdapter<String>(Main4Activity.this, android.R.layout.simple_list_item_1, teacher_name_array); //created adapter and received yname array from res file
+                tarray = new ArrayAdapter<String>(guest_feedback.this, android.R.layout.simple_list_item_1, teacher_name_array); //created adapter and received yname array from res file
                 tarray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);  //Set type of Spinner Adapter
                 sp_teacher.setAdapter(tarray);  //Called Spinner using the adapter
                 sp_teacher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -420,8 +427,8 @@ public class Main4Activity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 // return super.getParams();
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("branch",get_branch());
-                params.put("year",get_year());
+                params.put("branch",get_branch_guest());
+                params.put("year",get_year_guest());
                 return params;
             }
         };
@@ -432,7 +439,7 @@ public class Main4Activity extends AppCompatActivity {
 
     public void display() {
 
-        String URL_ROOT = "http://"+GlobalClass.URL+"/fed_app/questions.php";
+        String URL_ROOT = "http://"+GlobalClass.URL+"/fed_app/questions_guest.php";
 
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest =  new StringRequest(Request.Method.POST,URL_ROOT,new Response.Listener<String>() {
@@ -460,7 +467,7 @@ public class Main4Activity extends AppCompatActivity {
                         TV_ques9.setText("9. "+jsonObject.getString("ques9"));
                         TV_ques10.setText("10. "+jsonObject.getString("ques10"));
                     } else {
-                        Toast.makeText(Main4Activity.this, code, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(guest_feedback.this, code, Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
@@ -490,13 +497,13 @@ public class Main4Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(Main4Activity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(guest_feedback.this);
         builder.setMessage("Do want to exit?")
                 .setPositiveButton("Ok",new DialogInterface.OnClickListener(){
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent stud = new Intent(Main4Activity.this,MainActivity.class);   //back button=login screen
+                        Intent stud = new Intent(guest_feedback.this,MainActivity.class);   //back button=login screen
                         startActivity(stud);
                         finish();
                     }
@@ -516,12 +523,12 @@ public class Main4Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){    //programming the items inside menu
         int id=item.getItemId();
 
-        if(id==R.id.submit_all){
-            if(get_feed_count()==teacher_count){
-                set_registerbit(0);
+        if(id==R.id.submit_all) {
+            if(get_feed_count_guest()==teacher_count){
+                set_registerbit_guest(0);
 
                 String URL = "http://"+GlobalClass.URL+"/fed_app/bitset.php";
-                RequestQueue queue = Volley.newRequestQueue(Main4Activity.this);
+                RequestQueue queue = Volley.newRequestQueue(guest_feedback.this);
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -537,12 +544,12 @@ public class Main4Activity extends AppCompatActivity {
                             String code = jsonObject.getString("code");
                             if(code.equals("Successful"))
                             {
-                                Toast.makeText(Main4Activity.this, "Thank you for your feedback", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(Main4Activity.this,MainActivity.class);
+                                Toast.makeText(guest_feedback.this, "Thank you for your feedback", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(guest_feedback.this,MainActivity.class);
                                 startActivity(i);
                             }
                             else{
-                                Toast.makeText(Main4Activity.this, "Some error has occurred", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(guest_feedback.this, "Some error has occurred", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -562,8 +569,8 @@ public class Main4Activity extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<String, String>();
-                        params.put("rollno", get_rollno().toUpperCase());
-                        params.put("bit", "access_bit");
+                        params.put("rollno", get_rollno_guest().toUpperCase());
+                        params.put("bit", "guest_bit");
                         params.put("value", "1");
                         return params;
                     }
@@ -573,9 +580,12 @@ public class Main4Activity extends AppCompatActivity {
 
             }
             else{
-                Toast.makeText(Main4Activity.this, ""+(teacher_count-get_feed_count())+ " feedbacks not submitted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(guest_feedback.this, ""+(teacher_count-get_feed_count_guest())+ " feedbacks not submitted", Toast.LENGTH_SHORT).show();
             }
+
+
         }
+
         if(id==R.id.id_aboutapp)
         {
             Intent i = new Intent(this,About_activity.class);
@@ -584,13 +594,13 @@ public class Main4Activity extends AppCompatActivity {
         }
         if(id==R.id.id_exit)
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(Main4Activity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(guest_feedback.this);
             builder.setMessage("Do you want to exit?")
                     .setPositiveButton("Ok",new DialogInterface.OnClickListener(){
 
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent stud = new Intent(Main4Activity.this,MainActivity.class);   //back button=login screen
+                            Intent stud = new Intent(guest_feedback.this,MainActivity.class);   //back button=login screen
                             startActivity(stud);
                             finish();
                         }
@@ -602,37 +612,36 @@ public class Main4Activity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    private void set_registerbit(int bit) {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main",MODE_PRIVATE);
+    private void set_registerbit_guest(int guest_bit) {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main",MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putInt("bit",bit);
+        mEditor.putInt("guest_bit",guest_bit);
         mEditor.apply();
     }
-    private void store_feed_count(int count) {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main",MODE_PRIVATE);
+    private void store_feed_count_guest(int guest_count) {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main",MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putInt("count",count);
+        mEditor.putInt("guest_count",guest_count);
         mEditor.apply();
     }
-    private String get_rollno() {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main", MODE_PRIVATE);
-        String checker = mSharedPreferences.getString("rollno", "00000");
+    private String get_rollno_guest() {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main", MODE_PRIVATE);
+        String checker = mSharedPreferences.getString("guest_rollno", "00000");
         return checker;
     }
-    private String get_branch() {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main", MODE_PRIVATE);
-        String checker = mSharedPreferences.getString("branch", "");
+    private String get_branch_guest() {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main", MODE_PRIVATE);
+        String checker = mSharedPreferences.getString("guest_branch", "");
         return checker;
     }
-    private String get_year() {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main", MODE_PRIVATE);
-        String checker = mSharedPreferences.getString("year","");
+    private String get_year_guest() {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main", MODE_PRIVATE);
+        String checker = mSharedPreferences.getString("guest_year", "");
         return checker;
     }
-    private int get_feed_count() {
-        SharedPreferences mSharedPreferences = getSharedPreferences("main", MODE_PRIVATE);
-        int checker = mSharedPreferences.getInt("count",0);
+    private int get_feed_count_guest() {
+        SharedPreferences mSharedPreferences = getSharedPreferences("guest_main", MODE_PRIVATE);
+        int checker = mSharedPreferences.getInt("guest_count",0);
         return checker;
     }
-
 }

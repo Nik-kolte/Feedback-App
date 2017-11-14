@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nikko.myapplication.guest_login"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <!--XML File for Student screen-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="40dp">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student Login"
+            android:textSize="30dp"
+            android:layout_marginBottom="80dp"
+            />
+        <EditText
+            android:id="@+id/r_no"
+            android:layout_width="350dp"
+            android:layout_height="52dp"
+            android:ems="10"
+            android:hint="Roll No.(eg - TI027)"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="''Your feedback will be anonymous''"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_marginBottom="30dp"
+            />
+
+
+        <Button
+            android:id="@+id/proceed"
+            android:layout_width="199dp"
+            android:layout_height="51dp"
+            android:text="@string/proceed"
+            android:background="@drawable/button"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteY="501dp"
+            tools:layout_editor_absoluteX="106dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="35dp" />
+
+    </LinearLayout>
+
+</android.widget.RelativeLayout>

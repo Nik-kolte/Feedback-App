@@ -1,6 +1,9 @@
 package com.example.nikko.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,8 +24,10 @@ public class MainActivity extends AppCompatActivity {
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+              // Toast.makeText(MainActivity.this,"This Option is disabled for now",Toast.LENGTH_SHORT).show();
                 Intent stud = new Intent(MainActivity.this,Main2Activity.class);   //Linking welcome screen to Student Screen
                 startActivity(stud);
+                finish();
             }
         });
 
@@ -32,20 +37,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent stud = new Intent(MainActivity.this,Main3Activity.class);   //Linking welcome screen to Teacher Login Screen
                 startActivity(stud);
+                finish();
             }
         });
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Init();
+        /*Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/");
+        tv.setTypeface(myCustomFont);*/
         }
 
+    public void guestButton(View view){
+        Intent i = new Intent(this,guest_login.class);
+        startActivity(i);
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu manu){
-        getMenuInflater().inflate(R.menu.main , manu); //creating menu in action bar
+        getMenuInflater().inflate(R.menu.main_screen , manu); //creating menu in action bar
         return true;
     }
 
@@ -55,13 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(id==R.id.id_aboutapp)
         {
-            Toast.makeText( getApplicationContext(),"About App Selected",Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        if(id==R.id.id_exit)
-        {
-            finish();
-            System.exit(0);
+            Intent i = new Intent(this,About_activity.class);
+            startActivity(i);
             return true;
         }
         return true;

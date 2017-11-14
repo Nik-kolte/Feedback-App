@@ -8,12 +8,6 @@
         android:showAsAction="never" />
 
     <item
-        android:title="About App"
-        android:id="@+id/id_aboutapp"
-        android:orderInCategory="100"
-        android:showAsAction="never" />
-
-    <item
         android:title="Logout"
         android:id="@+id/id_logout"
         android:orderInCategory="102"

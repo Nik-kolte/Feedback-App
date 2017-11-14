@@ -1,6 +1,6 @@
 <resources>
     <!-- Resource file for the app, all hardcoded string kept here-->
-    <string name="app_name">Feedback System</string>
+    <string name="app_name">Feedify</string>
     <string name="edit_message1">eg. SI027</string>
     <string name="welcome">Welcome</string>
     <string name="students">Students</string>

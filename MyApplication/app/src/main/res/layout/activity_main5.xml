@@ -8,13 +8,11 @@
 
     <Spinner
         android:id="@+id/sp_year"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/teach_name"
-        android:layout_alignStart="@+id/teach_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/teach_name"
-        android:layout_marginLeft="38dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="60dp" />
 
     <TextView
@@ -29,13 +27,26 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/Go"
+        android:layout_width="100dp"
+        android:text="Search"
+        android:layout_height="50dp"
+        android:background="@drawable/button"
+        android:layout_below="@+id/textView6"
+        android:layout_marginLeft="10dp"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        android:layout_toRightOf="@+id/sp_branch"
+        android:onClick="fsearch"
+        />
 
     <Spinner
         android:id="@+id/sp_branch"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginStart="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_alignTop="@+id/sp_year"
         android:layout_toRightOf="@+id/sp_year"
         android:layout_toEndOf="@+id/sp_year" />
@@ -53,17 +64,393 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="9dp"
-        android:layout_below="@+id/sp_year"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/sp_branch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"  >
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"  >
 
+            <TextView
+                android:id="@+id/ques_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:background="#40D3D3D3"
+                android:layout_marginTop="16dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans1"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ques_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:background="#40D3D3D3"
+                android:layout_marginTop="8dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans2"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ques_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:background="#40D3D3D3"
+                android:layout_marginTop="8dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans3"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/ques_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:background="#40D3D3D3"
+                android:layout_marginTop="8dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans4"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/ques_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:background="#40D3D3D3"
+                android:layout_marginTop="8dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans5"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/ques_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:background="#40D3D3D3"
+                android:layout_marginTop="8dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans6"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/ques_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:background="#40D3D3D3"
+                android:layout_marginTop="8dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans7"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/ques_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#40D3D3D3"
+                android:textSize="25dp"
+                android:layout_marginTop="8dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans8"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/ques_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#40D3D3D3"
+                android:textSize="25dp"
+                android:layout_marginTop="8dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average:  "
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ans9"
+                    android:text=""
+                    android:textSize="35dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/ 10"
+                    android:textSize="25dp"
+
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/ques_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#40D3D3D3"
+                android:textSize="25dp"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:layout_width="250dp"
+                android:id="@+id/comments"
+                android:textColor="#FFFFFF"
+                android:visibility="gone"
+                android:text="View all comments"
+                android:background="@drawable/button"
+                android:onClick="comments"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="gone"
+                android:text="No comments"
+                android:id="@+id/no_comments"
+                android:textSize="15dp"/>
 
         </LinearLayout>
     </ScrollView>
